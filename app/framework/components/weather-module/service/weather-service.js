@@ -13,9 +13,10 @@ angular.module('weatherModule').service('weatherService', ['$http', '$q', functi
    */
   this.getWeatherData = function() {
     var deferred = $q.defer();
-    var url = weatherURI + '&callback=JSON_CALLBACK';
+    //var url = weatherURI + '&callback=JSON_CALLBACK';
+    var url = weatherURI;
 
-    $http.jsonp(url)
+    $http.get(url)
       .success(function (results) {
         var data = results || [];
         deferred.resolve(data);
