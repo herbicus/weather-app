@@ -4,7 +4,7 @@ angular.module('weatherModule').config(function($stateProvider) {
 
   $stateProvider.state('myWeatherApp', {
     url:'/myWeatherApp',
-    templateUrl: 'app/framework/components//weather-module/view/weather-view.html',
+    templateUrl: 'app/framework/components/weather-module/view/weather-view.html',
     controller: 'weatherController',
     controllerAs: 'myWeatherAppCtrl'
   });
