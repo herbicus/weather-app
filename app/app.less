@@ -1,0 +1,59 @@
+@import "../vendor/bootstrap/less/bootstrap.less";
+//@import "../vendor/bootstrap/less/theme.less";
+@import "../vendor/font-awesome/less/font-awesome.less";
+@fa-font-path: "../vendor/font-awesome/fonts";
+
+/* Component LESS */
+
+@import "framework/components/weather-module/weather-module.less";
+/* Add Component LESS Above */
+
+/* Required for Angular UI Bootstrap */
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.show-me {
+  border: 2px solid #000;
+}
+
+cite, p, a, h1, h2, h3, h4, h5, h6 {
+  word-wrap: break-word;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+.l-row {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  *zoom: 1;
+  padding: 1em 5%;
+}
+
+.l-sidebar {
+  float: left;
+  width: 30%;
+  min-height: 500px;
+  //  border-bottom: 1px solid #000;
+  //  border-right: 1px solid #000;
+  padding: 1em 2%;
+}
+
+.l-sidebar img {
+  width: 150px;
+  height: 150px;
+}
+
+.l-main-container {
+  float: left;
+  width: 60%;
+  min-height: 500px;
+  padding: 1em 2%;
+}
+
+
+
