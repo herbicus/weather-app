@@ -6,7 +6,7 @@ angular.module('weatherModule').controller('weatherController', ['$scope', 'weat
 
     weatherService.getWeatherData()
       .then(function(results){
-        ctrl.igData = results.data;
+        ctrl.wData = results.data;
       }, function(error){
         console.log('controller error in getting weather data');
       });
