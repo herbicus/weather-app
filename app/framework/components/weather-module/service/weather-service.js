@@ -3,7 +3,7 @@ angular.module('weatherModule').service('weatherService', ['$http', '$q', functi
   // assumes a node server running on port 9000
   // export PORT=9000
   //var SERVICE_URL_PREFIX = 'http://localhost:9000';
-  var query = 'Atlanta';
+  var query = 'Dallas';
 
 
 

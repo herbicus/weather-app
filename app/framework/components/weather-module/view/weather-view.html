@@ -41,11 +41,12 @@
 
       <div class="blue lighten-5 col s12 m9 l9">
 
-        <p><strong>Currently: </strong>{{ item.main.temp }} &#176;</p>
+        <!-- <p ng-init><strong>Currently: </strong>{{ temp }} &#176;F</p> -->
+        <p><strong>Currently: </strong>{{ item.main.temp - 273.15 }} &#176;F</p>
         <br/>
         <p><strong>Wind: </strong>{{ item.wind.speed }} mps</p>
-        <p><strong>Minimum Temperature: </strong>{{ item.main.temp_min }} &#176;</p>
-        <p><strong>Maximum Temprature: </strong>{{ item.main.temp_max }} &#176;</p>
+        <p><strong>Minimum Temperature: </strong>{{ item.main.temp_min -  273.15 }} &#176;</p>
+        <p><strong>Maximum Temprature: </strong>{{ item.main.temp_max -  273.15 }} &#176;</p>
         <p><strong>Pressure: </strong>{{ item.main.pressure }} hpa</p>
         <p><strong>Humidity: </strong>{{ item.main.humidity }} &#37;</p>
       </div>

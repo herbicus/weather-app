@@ -6,6 +6,8 @@ angular.module('weatherModule').controller('weatherController', ['$scope', 'weat
 
   //query = query || 'Atlanta';
 
+  //$scope.temp = Math.round(((item.main.temp - 273.15) * 1.8) + 32) + '°F';
+
   this.getWeatherData = function(query){
 
     var query = query || 'Atlanta';
