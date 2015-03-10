@@ -1,33 +1,55 @@
 <div class="weather-view">
-  <div class="l-row">
-    <h1>Weather App - ATL Current Weather</h1>
-  </div>
-
-
-
-  <div class="l-row" data-ng-repeat="item in myWeatherAppCtrl.wData">
-
-    <aside class="l-sidebar">
-      <h3>{{ item.weather.main }}</h3>
-      <h3>{{ item.name }}</h3>
-      <br/>
-      <p>{{ item.weather.description }}</p>
-
-
-    </aside>
-
-
-    <div class="l-main-container">
-
-      <p><strong>{{ item.main.temp }}</strong></p>
-      <br/>
-      <p>{{ item.main.temp_min }}</p>
-      <p>{{ item.main.temp_max }}</p>
-      <p>{{ item.main.pressure }}</p>
-      <p>{{ item.main.humidity }}</p>
-
-
+  <div class="container">
+    <div class="row l-top-header">
+      <h1>Current Weather</h1>
     </div>
-
   </div>
+
+  <div class="container">
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="username" class="validate" type="text" name="searchInput"
+                     ng-model="imagesCtrl.searchInput"
+                     ng-model-options="{ updateOn: 'blur'}">
+              <label for="username">Enter City...</label>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row" data-ng-repeat="item in myWeatherAppCtrl.wData">
+      <aside class="blue lighten-1 col s12 m3 l3r">
+        <h2>{{ item.name }}</h2>
+        <small>Right Now:</small>
+
+        <h3>{{ item.weather[0].main }}</h3>
+        <img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.weather[0].icon }}.png">
+
+
+        <br/>
+        <small>What To Expect:</small>
+        <p>{{ item.weather[0].description }}</p>
+        <p>{{ item.sys.country}}</p>
+
+
+      </aside>
+
+      <div class="blue lighten-5 col s12 m9 l9">
+
+        <p><strong>Currently: </strong>{{ item.main.temp }} &#176;</p>
+        <br/>
+        <p><strong>Wind: </strong>{{ item.wind.speed }} mps</p>
+        <p><strong>Minimum Temperature: </strong>{{ item.main.temp_min }} &#176;</p>
+        <p><strong>Maximum Temprature: </strong>{{ item.main.temp_max }} &#176;</p>
+        <p><strong>Pressure: </strong>{{ item.main.pressure }} hpa</p>
+        <p><strong>Humidity: </strong>{{ item.main.humidity }} &#37;</p>
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -2,18 +2,32 @@ angular.module('weatherModule').controller('weatherController', ['$scope', 'weat
 
   var ctrl = this;
 
-  ctrl.getWeatherData = function(){
+  //var query = $('input[name="city-search"]').val();
 
-    weatherService.getWeatherData()
+  //query = query || 'Atlanta';
+
+  this.getWeatherData = function(query){
+
+    var query = query || 'Atlanta';
+
+    weatherService.getWeatherData(query)
       .then(function(results){
-        ctrl.wData = results.data;
+        ctrl.wData = results;
       }, function(error){
         console.log('controller error in getting weather data');
       });
 
   };
 
-  ctrl.getWeatherData();
+  this.getWeatherData();
+
+  $scope.$watch('myWeatherAppCtrl.searchInput', function(newVal, oldVal){
+    if(newVal !== oldVal) {
+      console.log('yo ', newVal);
+      ctrl.getWeatherData(newVal);
+    }
+
+  });
 
 
 
