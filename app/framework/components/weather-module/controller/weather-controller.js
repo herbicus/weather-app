@@ -10,7 +10,7 @@ angular.module('weatherModule').controller('weatherController', ['$scope', 'weat
 
   this.getWeatherData = function(query){
 
-    var query = query || 'Atlanta';
+    query = query || 'Atlanta';
 
     weatherService.getWeatherData(query)
       .then(function(results){
@@ -27,6 +27,29 @@ angular.module('weatherModule').controller('weatherController', ['$scope', 'weat
     if(newVal !== oldVal) {
       console.log('yo ', newVal);
       ctrl.getWeatherData(newVal);
+    }
+
+  });
+
+  this.getWeatherDataDaily = function(){
+
+    //query = query || 'Atlanta';
+
+    weatherService.getWeatherDataDaily()
+      .then(function(results){
+        ctrl.wDailyData = results;
+      }, function(error){
+        console.log('controller error in getting weather data');
+      });
+
+  };
+
+  this.getWeatherDataDaily();
+
+  $scope.$watch('myWeatherAppCtrl.searchInput', function(newVal, oldVal){
+    if(newVal !== oldVal) {
+      console.log('yo ', newVal);
+      ctrl.getWeatherDataDaily(newVal);
     }
 
   });

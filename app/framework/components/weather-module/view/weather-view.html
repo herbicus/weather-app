@@ -5,50 +5,144 @@
     </div>
   </div>
 
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<form class="col s12">-->
+        <!--<div class="row">-->
+          <!--<div class="row">-->
+            <!--<div class="input-field col s12">-->
+              <!--<input id="username" class="validate" type="text" name="searchInput"-->
+                     <!--ng-model="imagesCtrl.searchInput"-->
+                     <!--ng-model-options="{ updateOn: 'blur'}">-->
+              <!--<label for="username">Enter City...</label>-->
+            <!--</div>-->
+          <!--</div>-->
+      <!--</form>-->
+    <!--</div>-->
+  <!--</div>-->
+
+
+
   <div class="container">
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
+    <div class="row" data-ng-repeat="item in myWeatherAppCtrl.wData">
+      <aside class="blue lighten-1 col s12 m3 l3r z-depth-3">
+        <h2>{{ item.name }}</h2>
+        <small>Right Now:</small>
+
+        <h3>{{ item.weather[0].main }}</h3>
+        <h1>{{ item.main.temp }} &#176;F</h1>
+        <img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.weather[0].icon }}.png">
+
+        <br/>
+        <small>What To Expect:</small>
+        <p>{{ item.weather[0].description }}</p>
+        <p>{{ item.sys.country}}</p>
+        <br/>
+        <form novalidate>
           <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field">
               <input id="username" class="validate" type="text" name="searchInput"
                      ng-model="imagesCtrl.searchInput"
                      ng-model-options="{ updateOn: 'blur'}">
               <label for="username">Enter City...</label>
             </div>
           </div>
-      </form>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row" data-ng-repeat="item in myWeatherAppCtrl.wData">
-      <aside class="blue lighten-1 col s12 m3 l3r">
-        <h2>{{ item.name }}</h2>
-        <small>Right Now:</small>
-
-        <h3>{{ item.weather[0].main }}</h3>
-        <img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.weather[0].icon }}.png">
-
-
-        <br/>
-        <small>What To Expect:</small>
-        <p>{{ item.weather[0].description }}</p>
-        <p>{{ item.sys.country}}</p>
+        </form>
 
 
       </aside>
 
-      <div class="blue lighten-5 col s12 m9 l9">
+      <div class="blue lighten-5 col s12 m9 l9 z-depth-4">
 
         <!-- <p ng-init><strong>Currently: </strong>{{ temperature }} &#176;F</p> -->
-        <p><strong>Currently: </strong>{{ item.main.temp - 273.15 }} &#176;F</p>
+        <p><strong>Currently: </strong>{{ item.main.temp }} &#176;F</p>
         <br/>
         <p><strong>Wind: </strong>{{ item.wind.speed }} mps</p>
-        <p><strong>Minimum Temperature: </strong>{{ item.main.temp_min -  273.15 }} &#176;</p>
-        <p><strong>Maximum Temprature: </strong>{{ item.main.temp_max -  273.15 }} &#176;</p>
+        <!--<p><strong>Minimum Temperature: </strong>{{ item.main.temp_min }} &#176;F</p>-->
+        <!--<p><strong>Maximum Temprature: </strong>{{ item.main.temp_max  }} &#176;F</p>-->
         <p><strong>Pressure: </strong>{{ item.main.pressure }} hpa</p>
         <p><strong>Humidity: </strong>{{ item.main.humidity }} &#37;</p>
+
+        <hr/>
+
+        <p><strong>tomorow: </strong>{{ item.main.temp }} &#176;F</p>
+        <!--<h3>{{ item.weather[0].main }}</h3>-->
+        <!--<h3>{{ item.weather[2].main }}</h3>-->
+        <!--<h3>{{ item.weather[3].main }}</h3>-->
+        <!--<h3>{{ item.weather[4].main }}</h3>-->
+
+        <!--wDailyData-->
+
+        <div class="row" data-ng-repeat="item in myWeatherAppCtrl.wDailyData">
+
+          <div class="blue lighten-1 col s2 m2 l2r z-depth-1">
+            <h3>{{ item.list[0].weather[0].main }}</h3>
+            <img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.list[0].weather[0].icon }}.png">
+            <h4>{{ item.list[0].temp.day }} &#176;F</h4>
+            <h4>{{ item.list[0].weather[0].description }}</h4>
+          </div>
+
+          <div class="blue lighten-2 col s2 m2 l2r z-depth-2">
+            <h3>{{ item.list[1].weather[0].main }}</h3>
+            <img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.list[1].weather[0].icon }}.png">
+            <h4>{{ item.list[1].temp.day }} &#176;F</h4>
+            <h4>{{ item.list[1].weather[0].description }}</h4>
+          </div>
+
+          <div class="blue lighten-3 col s2 m2 l2r z-depth-3">
+            <h3>{{ item.list[2].weather[0].main }}</h3>
+            <img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.list[2].weather[0].icon }}.png">
+            <h4>{{ item.list[2].temp.day }} &#176;F</h4>
+            <h4>{{ item.list[2].weather[0].description }}</h4>
+          </div>
+
+          <div class="blue lighten-4 col s2 m2 l2r z-depth-4">
+            <h3>{{ item.list[3].weather[0].main }}</h3>
+            <img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.list[3].weather[0].icon }}.png">
+            <h4>{{ item.list[3].temp.day }} &#176;F</h4>
+            <h4>{{ item.list[3].weather[0].description }}</h4>
+          </div>
+
+          <div class="blue lighten-5 col s2 m2 l2r z-depth-5">
+            <h3>{{ item.list[3].weather[0].main }}</h3>
+            <img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.list[3].weather[0].icon }}.png">
+            <h4>{{ item.list[3].temp.day }} &#176;F</h4>
+            <h4>{{ item.list[3].weather[0].description }}</h4>
+          </div>
+
+          <div class="blue lighten-6 col s2 m2 l2r z-depth-6">
+            <h3>{{ item.list[3].weather[0].main }}</h3>
+            <img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.list[3].weather[0].icon }}.png">
+            <h4>{{ item.list[3].temp.day }} &#176;F</h4>
+            <h4>{{ item.list[3].weather[0].description }}</h4>
+          </div>
+
+
+
+          <!--<h3>{{ item.list[0].weather[0].main }}</h3>-->
+          <!--<img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.list[0].weather[0].icon }}.png">-->
+          <!--<h4>{{ item.list[0].temp.day }}</h4>-->
+          <!--<h4>{{ item.list[0].weather[0].description }}</h4>-->
+          <!--<hr/>-->
+          <!--<h3>{{ item.list[1].weather[0].main }}</h3>-->
+          <!--<img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.list[1].weather[0].icon }}.png">-->
+          <!--<h4>{{ item.list[1].temp.day }}</h4>-->
+          <!--<h4>{{ item.list[1].weather[0].description }}</h4>-->
+          <!--<hr/>-->
+
+          <!--<h3>{{ item.list[2].weather[0].main }}</h3>-->
+          <!--<img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.list[2].weather[0].icon }}.png">-->
+          <!--<h4>{{ item.list[2].temp.day }}</h4>-->
+          <!--<h4>{{ item.list[2].weather[0].description }}</h4>-->
+          <!--<hr/>-->
+          <!--<h3>{{ item.list[3].weather[0].main }}</h3>-->
+          <!--<img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.list[3].weather[0].icon }}.png">-->
+          <!--<h4>{{ item.list[3].temp.day }}</h4>-->
+          <!--<h4>{{ item.list[3].weather[0].description }}</h4>-->
+        </div>
+
+
+
       </div>
     </div>
   </div>
