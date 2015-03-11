@@ -11,6 +11,26 @@
 /* Required for Angular UI Bootstrap */
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
+header {
+  background: #42a5f5;
+  height: 70px;
+  display: table;
+  width: 100%;
+
+  h1 {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.l-row {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+//  display: table-cell;
+//  vertical-align: middle;
+}
+
 .show-me {
   border: 2px solid #000;
 }
@@ -30,7 +50,7 @@ body, html {
 }
 
 body {
-  background: url(framework/components/img/sky-bg.jpg)no-repeat fixed center center;
+  background: url(framework/components/img/blue-sky-flat-bg.png)no-repeat fixed top center;
   -webkit-background-size: cover;
   background-size: cover;
   font-family: 'Roboto', sans-serif;
@@ -74,10 +94,70 @@ input[type=text] {
   border-bottom: 1px solid black;
 }
 
+.row .col.l9 {
+  width: 73.5%;
+}
+
+.row .col.m2 {
+  min-height: 231px;
+}
+
 .valid {
   -webkit-box-shadow: 0 1px 0 0 #0064cd;
   -moz-box-shadow: 0 1px 0 0 #0064cd;
   box-shadow: 0 1px 0 0 #0064cd;
+}
+
+
+.l-mobile-btn {
+  font-size: 3em;
+  display: none;
+  position: absolute;
+  right: 02%;
+  top: 10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.l-mobile-btn:hover {
+  cursor: pointer;
+  color: #fff;
+}
+
+
+@media screen and (max-width: 600px) {
+  .row .col.m2 {
+    width: 100%;
+    float: left;
+    text-align: center;
+  }
+
+  .row .col.l9 {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  h4 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  .l-mobile-btn {
+    display: block;
+  }
+
+  .l-desktop-form {
+    display: none;
+  }
+
+
 }
 
 

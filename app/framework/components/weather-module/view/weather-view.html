@@ -1,9 +1,15 @@
 <div class="weather-view">
-  <div class="container">
-    <div class="row l-top-header">
-      <h1>Current Weather</h1>
-    </div>
-  </div>
+  <!--<div class="container">-->
+    <!--<div class="row l-top-header">-->
+      <!--<h1>Current Weather</h1>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<header>-->
+    <!--<div class="row">-->
+      <!--<h1>Weatherator</h1>-->
+    <!--</div>-->
+  <!--</header>-->
 
   <!--<div class="container">-->
     <!--<div class="row">-->
@@ -38,7 +44,7 @@
         <p>{{ item.weather[0].description }}</p>
         <p>{{ item.sys.country}}</p>
         <br/>
-        <form novalidate>
+        <form novalidate class="l-desktop-form">
           <div class="row">
             <div class="input-field">
               <input id="username" class="validate" type="text" name="searchInput"
@@ -54,24 +60,14 @@
 
       <div class="blue lighten-5 col s12 m9 l9 z-depth-4">
 
-        <!-- <p ng-init><strong>Currently: </strong>{{ temperature }} &#176;F</p> -->
+
         <p><strong>Currently: </strong>{{ item.main.temp }} &#176;F</p>
         <br/>
         <p><strong>Wind: </strong>{{ item.wind.speed }} mps</p>
-        <!--<p><strong>Minimum Temperature: </strong>{{ item.main.temp_min }} &#176;F</p>-->
-        <!--<p><strong>Maximum Temprature: </strong>{{ item.main.temp_max  }} &#176;F</p>-->
+        <p><strong>Minimum Temperature: </strong>{{ item.main.temp_min }} &#176;F</p>
+        <p><strong>Maximum Temprature: </strong>{{ item.main.temp_max  }} &#176;F</p>
         <p><strong>Pressure: </strong>{{ item.main.pressure }} hpa</p>
         <p><strong>Humidity: </strong>{{ item.main.humidity }} &#37;</p>
-
-        <hr/>
-
-        <p><strong>tomorow: </strong>{{ item.main.temp }} &#176;F</p>
-        <!--<h3>{{ item.weather[0].main }}</h3>-->
-        <!--<h3>{{ item.weather[2].main }}</h3>-->
-        <!--<h3>{{ item.weather[3].main }}</h3>-->
-        <!--<h3>{{ item.weather[4].main }}</h3>-->
-
-        <!--wDailyData-->
 
         <div class="row" data-ng-repeat="item in myWeatherAppCtrl.wDailyData">
 
@@ -104,17 +100,17 @@
           </div>
 
           <div class="blue lighten-5 col s2 m2 l2r z-depth-5">
-            <h3>{{ item.list[3].weather[0].main }}</h3>
+            <h3>{{ item.list[4].weather[0].main }}</h3>
             <img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.list[3].weather[0].icon }}.png">
-            <h4>{{ item.list[3].temp.day }} &#176;F</h4>
-            <h4>{{ item.list[3].weather[0].description }}</h4>
+            <h4>{{ item.list[4].temp.day }} &#176;F</h4>
+            <h4>{{ item.list[4].weather[0].description }}</h4>
           </div>
 
           <div class="blue lighten-6 col s2 m2 l2r z-depth-6">
-            <h3>{{ item.list[3].weather[0].main }}</h3>
+            <h3>{{ item.list[5].weather[0].main }}</h3>
             <img class="l-weather-icon" data-ng-src="http://openweathermap.org/img/w/{{ item.list[3].weather[0].icon }}.png">
-            <h4>{{ item.list[3].temp.day }} &#176;F</h4>
-            <h4>{{ item.list[3].weather[0].description }}</h4>
+            <h4>{{ item.list[5].temp.day }} &#176;F</h4>
+            <h4>{{ item.list[5].weather[0].description }}</h4>
           </div>
 
 
